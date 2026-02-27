@@ -30,6 +30,9 @@ class I18nManager {
     if (navLang.startsWith("pt")) {
       return "pt-BR";
     }
+    if (navLang.startsWith("de")) {
+      return "de";
+    }
     if (navLang.startsWith("ru")) {
       return "ru";
     }
