@@ -1,4 +1,3 @@
-import { en } from "../locales/en.ts";
 import type { Locale, TranslationMap } from "./types.ts";
 
 type Subscriber = (locale: Locale) => void;
@@ -64,10 +63,10 @@ class I18nManager {
           module = await import("../locales/zh-TW.ts");
         } else if (locale === "pt-BR") {
           module = await import("../locales/pt-BR.ts");
+        } else if (locale === "ru") {
+          module = await import("../locales/ru.ts");
         } else {
-
-     } else if (locale === "ru") {
-  module = await import("../locales/ru.ts");     return;
+          throw new Error(`Unsupported locale: ${locale}`);
         }
         this.translations[locale] = module[locale.replace("-", "_")];
       } catch (e) {
@@ -96,8 +95,7 @@ class I18nManager {
 
   public t(key: string, params?: Record<string, string>): string {
     const keys = key.split(".");
-    let value: unknown = this.translations[this.locale] || this.translations["en"];
-
+    let value: unknown = this.translations[this.locale] ?? this.translations["en"];
     for (const k of keys) {
       if (value && typeof value === "object") {
         value = (value as Record<string, unknown>)[k];
@@ -127,7 +125,6 @@ class I18nManager {
     if (params) {
       return value.replace(/\{(\w+)\}/g, (_, k) => params[k] || `{${k}}`);
     }
-
     return value;
   }
 }
