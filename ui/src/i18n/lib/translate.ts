@@ -62,11 +62,10 @@ class I18nManager {
         } else if (locale === "zh-TW") {
           module = await import("../locales/zh-TW.ts");
         } else if (locale === "pt-BR") {
-          module = await import("../locales/pt-BR.ts");
         } else if (locale === "ru") {
           module = await import("../locales/ru.ts");
         } else {
-          throw new Error(`Unsupported locale: ${locale}`);
+          return;
         }
         this.translations[locale] = module[locale.replace("-", "_")];
       } catch (e) {
