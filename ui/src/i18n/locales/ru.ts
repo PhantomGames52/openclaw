@@ -4,7 +4,7 @@ export const ru: TranslationMap = {
   common: {
     version: "Версия",
     health: "Состояние",
-    ok: " OK",
+    ok: "OK",
     offline: "Офлайн",
     connect: "Подключиться",
     refresh: "Обновить",
