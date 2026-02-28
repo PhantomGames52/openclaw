@@ -116,6 +116,7 @@ export const ru: TranslationMap = {
     zhCN: "简体中文 (Упрощённый китайский)",
     zhTW: "繁體中文 (Традиционный китайский)",
     ptBR: "Português (Бразильский португальский)",
+    de: "Deutsch",
     ru: "Русский",
   },
 };
